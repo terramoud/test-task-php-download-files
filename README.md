@@ -13,7 +13,7 @@ How to run project?
 9) Execute `composer dump-autoload`
 10) Configure the web server to run test task
     * At first need to create virtual host
-        * Open file: pathToYourXAMPP/xampp/apache/conf/extra/httpd-vhosts.conf
+        * Open file: `pathToYourXAMPP/xampp/apache/conf/extra/httpd-vhosts.conf`
         * Add new virtual host:   
       `<VirtualHost *:80>`  
       `DocumentRoot "pathToYourXAMPP/xampp/htdocs/test-task-php-download-files/public"`  

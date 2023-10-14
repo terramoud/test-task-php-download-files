@@ -1,0 +1,19 @@
+{
+    "name": "user/test-task-php-download-files",
+    "autoload": {
+        "psr-4": {
+            "User\\TestTaskPhpDownloadFiles\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Oleksandr Koreshev",
+            "email": "a.koreshev1@gmail.com"
+        }
+    ],
+    "require": {
+        "ext-pdo": "*",
+        "ext-curl": "*",
+        "php-amqplib/php-amqplib": "^v3.1.0"
+    }
+}

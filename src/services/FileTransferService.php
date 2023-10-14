@@ -6,6 +6,12 @@ use CURLFile;
 use User\TestTaskPhpDownloadFiles\Paths;
 use User\TestTaskPhpDownloadFiles\utils\Logger;
 
+/**
+ * Class FileTransferService
+ *
+ * This class handles file transfers and provides methods
+ * to upload files securely using cURL.
+ */
 class FileTransferService
 {
     private const MAX_NUMBER_DOCUMENTS = 3;
@@ -16,10 +22,27 @@ class FileTransferService
     private const UPLOAD_ERROR_MESSAGE = 'Error during uploading files. Try again.';
     private Logger $logger;
 
+    /**
+     * FileTransferService constructor.
+     *
+     * Initializes a new FileTransferService instance.
+     */
     public function __construct()
     {
         $this->logger = new Logger(__CLASS__);
     }
+
+    /**
+     * Transfer files securely to the server using cURL.
+     * This method checks if the user is authorized, validates the uploaded files,
+     * and transfers them securely to the server using cURL.
+     *
+     * @param int $userId The user ID for the file transfer.
+     * @param array $listDocuments An array of uploaded document files.
+     * @param array $listImages An array of uploaded image files.
+     *
+     * @return false|string JSON-encoded response indicating success or an error message.
+     */
     public function transferFilesByCurl(int $userId, array $listDocuments, array $listImages): false|string
     {
         if (count($listDocuments['tmp_name']) > self::MAX_NUMBER_DOCUMENTS) {
@@ -53,6 +76,14 @@ class FileTransferService
         return $response;
     }
 
+    /**
+     * Validate uploaded files by MIME type.
+     * This method checks if the uploaded files are of valid MIME types.
+     *
+     * @param array $files An array of cURL file objects.
+     *
+     * @return bool True if all files are of valid MIME types, false otherwise.
+     */
     private function isFilesValidByType(array $files): bool
     {
         foreach ($files as $file) {
@@ -70,6 +101,15 @@ class FileTransferService
         return true;
     }
 
+    /**
+     * Convert a list of uploaded files to cURL file objects.
+     * This method converts a list of uploaded files to cURL file
+     * objects for use in cURL POST requests.
+     *
+     * @param array $listFiles An array of uploaded files.
+     *
+     * @return array An array of cURL file objects.
+     */
     private function convertListFilesToCURLFilesObjects(array $listFiles): array
     {
         $curlObjects = [];

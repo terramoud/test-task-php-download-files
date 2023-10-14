@@ -9,9 +9,7 @@ use User\TestTaskPhpDownloadFiles\services\UserService;
 use User\TestTaskPhpDownloadFiles\utils\Logger;
 
 /**
- * Class UserController
- *
- * This class handles user-related actions in the application.
+ * Handles user-related actions in the application.
  */
 class UserController
 {
@@ -20,8 +18,6 @@ class UserController
     private Logger $logger;
 
     /**
-     * UserController constructor.
-     *
      * Initializes the UserController with a UserService and a Logger.
      */
     public function __construct(UserService $userService)
@@ -58,18 +54,18 @@ class UserController
     /**
      * Send an authorization response.
      *
-     * @param bool $isSuccess True if registration was successful, false otherwise.
+     * @param bool $isLoginSuccessful True if registration was successful, false otherwise.
      */
-    private function renderView(bool $isSuccess): void
+    private function renderView(bool $isLoginSuccessful): void
     {
-        if ($isSuccess) {
+        if ($isLoginSuccessful) {
             $this->logger->log('Login successful');
             header("Location: " . Paths::HOME_ROUTE);
             return;
         }
         $this->logger->log('Login failed');
         $submitLoginFormMessage = self::AUTHENTICATION_FAILED_MESSAGE;
-        header("Location: " . Paths::LOGIN_ROUTE);
+        require_once(Paths::LOGIN_VIEW);
     }
 }
 

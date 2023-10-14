@@ -4,19 +4,31 @@ namespace User\TestTaskPhpDownloadFiles\models;
 
 /**
  * Class User
- *
- * This class represents a user in the application.
+ * Represents a user entity.
  */
 class User
 {
+    /**
+     * @var int The user's ID.
+     */
     private int $id;
+
+    /**
+     * @var string The user's email address.
+     */
     private string $email;
+
+    /**
+     * @var string The user's password.
+     */
     private string $password;
 
     /**
-     * @param int $id
-     * @param string $email
-     * @param string $password
+     * User constructor.
+     *
+     * @param int $id The user's ID (default is 0).
+     * @param string $email The user's email address (default is an empty string).
+     * @param string $password The user's password (default is an empty string).
      */
     public function __construct(int $id = 0, string $email = '', string $password = '')
     {
@@ -25,9 +37,10 @@ class User
         $this->password = $password;
     }
 
-
     /**
-     * @return int
+     * Get the user's ID.
+     *
+     * @return int The user's ID.
      */
     public function getId(): int
     {
@@ -35,7 +48,9 @@ class User
     }
 
     /**
-     * @param int $id
+     * Set the user's ID.
+     *
+     * @param int $id The user's ID.
      */
     public function setId(int $id): void
     {
@@ -43,7 +58,9 @@ class User
     }
 
     /**
-     * @return string
+     * Get the user's email address.
+     *
+     * @return string The user's email address.
      */
     public function getEmail(): string
     {
@@ -51,7 +68,9 @@ class User
     }
 
     /**
-     * @param string $email
+     * Set the user's email address.
+     *
+     * @param string $email The user's email address.
      */
     public function setEmail(string $email): void
     {
@@ -59,7 +78,9 @@ class User
     }
 
     /**
-     * @return string
+     * Get the user's password.
+     *
+     * @return string The user's password.
      */
     public function getPassword(): string
     {
@@ -67,7 +88,9 @@ class User
     }
 
     /**
-     * @param string $password
+     * Set the user's password.
+     *
+     * @param string $password The user's password.
      */
     public function setPassword(string $password): void
     {

@@ -2,6 +2,10 @@
 
 namespace User\TestTaskPhpDownloadFiles\models;
 
+/**
+ * Class FileMetadata
+ * Represents metadata information for a file.
+ */
 class FileMetadata
 {
     private int $userId;
@@ -10,12 +14,18 @@ class FileMetadata
     private string $size;
     private int $timestamp;
 
+    /**
+     * FileMetadata constructor.
+     * Initializes a new instance of the FileMetadata class.
+     */
     public function __construct()
     {
     }
 
     /**
-     * @return int
+     * Get the user ID associated with the file.
+     *
+     * @return int The user ID.
      */
     public function getUserId(): int
     {
@@ -23,7 +33,9 @@ class FileMetadata
     }
 
     /**
-     * @param int $userId
+     * Set the user ID associated with the file.
+     *
+     * @param int $userId The user ID.
      */
     public function setUserId(int $userId): void
     {
@@ -31,7 +43,9 @@ class FileMetadata
     }
 
     /**
-     * @return string
+     * Get the name of the file.
+     *
+     * @return string The file name.
      */
     public function getFileName(): string
     {
@@ -39,7 +53,9 @@ class FileMetadata
     }
 
     /**
-     * @param string $fileName
+     * Set the name of the file.
+     *
+     * @param string $fileName The file name.
      */
     public function setFileName(string $fileName): void
     {
@@ -47,7 +63,9 @@ class FileMetadata
     }
 
     /**
-     * @return string
+     * Get the file type or MIME type.
+     *
+     * @return string The file type.
      */
     public function getFileType(): string
     {
@@ -55,7 +73,9 @@ class FileMetadata
     }
 
     /**
-     * @param string $fileType
+     * Set the file type or MIME type.
+     *
+     * @param string $fileType The file type.
      */
     public function setFileType(string $fileType): void
     {
@@ -63,7 +83,9 @@ class FileMetadata
     }
 
     /**
-     * @return string
+     * Get the size of the file.
+     *
+     * @return string The file size.
      */
     public function getSize(): string
     {
@@ -71,7 +93,9 @@ class FileMetadata
     }
 
     /**
-     * @param string $size
+     * Set the size of the file.
+     *
+     * @param string $size The file size.
      */
     public function setSize(string $size): void
     {
@@ -79,7 +103,9 @@ class FileMetadata
     }
 
     /**
-     * @return int
+     * Get the timestamp of when the file was created or modified.
+     *
+     * @return int The file timestamp.
      */
     public function getTimestamp(): int
     {
@@ -87,7 +113,9 @@ class FileMetadata
     }
 
     /**
-     * @param int $timestamp
+     * Set the timestamp of when the file was created or modified.
+     *
+     * @param int $timestamp The file timestamp.
      */
     public function setTimestamp(int $timestamp): void
     {

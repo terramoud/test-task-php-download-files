@@ -23,10 +23,8 @@ class Paths
      * Path to the log file.
      */
     const LOG_FILE = PROJECT_ROOT . '/logs/file.log';
-
     const METADATA_PATH = PROJECT_ROOT . '/storage/metadata.json';
     const FILE_STORAGE_DIR = PROJECT_ROOT . '/storage/files/';
-
     const ROOT_ROUTE = '/';
     const HOME_ROUTE = '/home';
     const LOGIN_ROUTE = '/login';

@@ -4,17 +4,25 @@ namespace User\TestTaskPhpDownloadFiles\dto;
 
 /**
  * Class UserAuthDTO
- *
- * This class represents a data transfer object (DTO) for user registration data.
+ * Data Transfer Object (DTO) for user authentication.
  */
 class UserAuthDTO
 {
+    /**
+     * @var string The user's email address.
+     */
     private string $email;
+
+    /**
+     * @var string The user's password.
+     */
     private string $password;
 
     /**
-     * @param string $email
-     * @param string $password
+     * UserAuthDTO constructor.
+     *
+     * @param string $email The user's email address.
+     * @param string $password The user's password.
      */
     public function __construct(string $email, string $password)
     {
@@ -23,7 +31,9 @@ class UserAuthDTO
     }
 
     /**
-     * @return string
+     * Get the user's email address.
+     *
+     * @return string The user's email address.
      */
     public function getEmail(): string
     {
@@ -31,7 +41,9 @@ class UserAuthDTO
     }
 
     /**
-     * @param string $email
+     * Set the user's email address.
+     *
+     * @param string $email The user's email address.
      */
     public function setEmail(string $email): void
     {
@@ -39,7 +51,9 @@ class UserAuthDTO
     }
 
     /**
-     * @return string
+     * Get the user's password.
+     *
+     * @return string The user's password.
      */
     public function getPassword(): string
     {
@@ -47,7 +61,9 @@ class UserAuthDTO
     }
 
     /**
-     * @param string $password
+     * Set the user's password.
+     *
+     * @param string $password The user's password.
      */
     public function setPassword(string $password): void
     {

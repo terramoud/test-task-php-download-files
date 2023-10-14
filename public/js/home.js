@@ -13,13 +13,12 @@ document.addEventListener("DOMContentLoaded", function () {
             processData: false,
             contentType: false,
             success: responseJSON => {
-                console.log(responseJSON)
                 let response = JSON.parse(responseJSON);
                 if (response.success) {
                     errorMessage.textContent = "";
                     alert(response.message);
-                    // this.reset();
-                    // window.location.href = '/home';
+                    this.reset();
+                    window.location.href = '/home';
                     return;
                 }
                 errorMessage.textContent = response.message;

@@ -9,15 +9,18 @@ use User\TestTaskPhpDownloadFiles\controllers\DefaultController;
 use User\TestTaskPhpDownloadFiles\controllers\FileTransferController;
 use User\TestTaskPhpDownloadFiles\controllers\UploadFilesController;
 use User\TestTaskPhpDownloadFiles\controllers\UserController;
-use User\TestTaskPhpDownloadFiles\repository\UploadFilesRepository;use User\TestTaskPhpDownloadFiles\repository\UserRepository;
+use User\TestTaskPhpDownloadFiles\repository\UploadFilesRepository;
+use User\TestTaskPhpDownloadFiles\repository\UserRepository;
 use User\TestTaskPhpDownloadFiles\services\FileTransferService;
-use User\TestTaskPhpDownloadFiles\services\UploadFilesService;use User\TestTaskPhpDownloadFiles\services\UserService;
+use User\TestTaskPhpDownloadFiles\services\UploadFilesService;
+use User\TestTaskPhpDownloadFiles\services\UserService;
 use User\TestTaskPhpDownloadFiles\utils\Logger;
 
 $logger = new Logger("routes.php");
 $userController = initUserController();
 $uploadFilesController = new UploadFilesController(new UploadFilesService(new UploadFilesRepository()));
 $fileTransferController = new FileTransferController(new FileTransferService());
+
 $routes = [
     Paths::ROOT_ROUTE => ['controller' => $userController, 'action' => 'login'],
     Paths::LOGIN_ROUTE => ['controller' => $userController, 'action' => 'login'],
@@ -41,7 +44,7 @@ function initUserController()
 {
     global $logger;
     try {
-        $pdo = new PDO("mysql:host=localhost:3306;dbname=php_test_task_files", "root", "ffff");
+        $pdo = new PDO(MySQLConfig::DATA_SOURCE,MySQLConfig::USERNAME, MySQLConfig::PASSWORD);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $e) {
         $logger->log($e);
@@ -51,4 +54,5 @@ function initUserController()
     $userService = new UserService($userRepository);
     return new UserController($userService);
 }
+
 ?>
